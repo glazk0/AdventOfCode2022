@@ -1,0 +1,8 @@
+{
+  "name": "adventofcode",
+  "type": "module",
+  "description": "Advent of Code 2022 solutions in JavaScript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "glazk0 (https://glazk0.dev)"
+}
