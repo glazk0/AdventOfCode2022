@@ -2,20 +2,12 @@ import fs from 'node:fs';
 
 const data = fs.readFileSync('calories.txt', 'utf8');
 
-const calories = data.split(/\r?\n/);
+const elves = data.replace(/\r/g, '').trim().split(/\n\n/);
 
-let highest = 0;
+const calories = elves.map((elf) => elf.split(/\n/).reduce((acc, curr) => acc + parseInt(curr, 10), 0));
 
-for (let i = 0; i < calories.length; i++) {
-  let sum = 0;
+console.log(`Part 1 - ${Math.max(...calories)} cals are carried by the top elve `); // 64929
 
-  for (let j = i; j < calories.length; j++) {
-    sum += parseInt(calories[j]);
+calories.sort((a, b) => b - a);
 
-    if (sum > highest) {
-      highest = sum;
-    }
-  }
-}
-
-console.log(`Returned highest value: ${highest}`); // 64929
+console.log(`Part 2 - ${calories[0] + calories[1] + calories[2]} cals are carried by the top 3 elves`); // 193697
