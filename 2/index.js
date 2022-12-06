@@ -1,8 +1,9 @@
-import fs from 'node:fs';
+import { readFileSync } from 'node:fs';
 
-const data = fs.readFileSync('input.txt', 'utf8');
-
-const rounds = data.replace(/\r/g, '').trim().split(/\n/);
+const rounds = readFileSync('input.txt', { encoding: 'utf-8' })
+  .replace(/\r/g, '')
+  .trim()
+  .split(/\n/);
 
 let total = 0;
 
