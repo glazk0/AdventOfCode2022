@@ -1,8 +1,9 @@
-import fs from 'node:fs';
+import { readFileSync } from 'node:fs';
 
-const data = fs.readFileSync('calories.txt', 'utf8');
-
-const elves = data.replace(/\r/g, '').trim().split(/\n\n/);
+const elves = readFileSync('input.txt', { encoding: 'utf-8' })
+  .replace(/\r/g, '')
+  .trim()
+  .split(/\n\n/);
 
 const calories = elves.map((elf) => elf.split(/\n/).reduce((acc, curr) => acc + parseInt(curr, 10), 0));
 
