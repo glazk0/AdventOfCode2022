@@ -23,7 +23,7 @@ const instructionReader = ([itemCount, from, to]) => {
     let poped = moves[from - 1].pop();
     accumulator.push(poped);
   }
-  if (part) accumulator.reverse();
+  accumulator.reverse();
   moves[to - 1] = [...moves[to - 1], ...accumulator];
 };
 
